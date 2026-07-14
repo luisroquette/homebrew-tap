@@ -7,14 +7,13 @@ cask "notchagent" do
   desc "Fuel gauge for AI agents in the MacBook notch — Claude Code & Codex quota monitor"
   homepage "https://github.com/luisroquette/notchagent"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "NotchAgent.app"
 
   caveats <<~EOS
-    NotchAgent is free and not notarized. If macOS blocks the first launch, install with:
-      brew install --cask --no-quarantine luisroquette/tap/notchagent
-    or clear the flag manually:
+    NotchAgent is free and not notarized. If macOS blocks the first launch,
+    clear the quarantine flag once:
       xattr -dr com.apple.quarantine "/Applications/NotchAgent.app"
   EOS
 
